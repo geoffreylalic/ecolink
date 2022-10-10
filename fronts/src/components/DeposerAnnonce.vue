@@ -1,7 +1,7 @@
 <template>
 
     <div>
-
+Deposer annonce
     </div>  
   
    </template>

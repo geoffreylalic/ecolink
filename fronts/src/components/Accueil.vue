@@ -2,11 +2,18 @@
 
 <div>
     <div class="recherche">
+        
         <h2 style="margin-bottom: 5%; margin-left: 20%; text-align: left;">Que recherchez vous ?</h2>
+        <div>
+            <md-radio v-model="radio" value="Offres">Offres</md-radio>
+            <md-radio v-model="radio" value="Demandes" class="md-primary">Demandes</md-radio>
+        </div>
         <md-field>
-          <label>Restaurants</label>
+            <label>{{ radio }}</label>
             <md-input @input="chercherRestaurants" type="texte" v-model="nomRechercher"></md-input>
-          </md-field>
+        </md-field>
+
+        <md-button class="md-raised md-primary">Rechercher</md-button>
 
         <md-table v-model="restaurantsRecherche" v-show="show">
           <md-table-row slot="md-table-row" slot-scope="{ item }" v-on:click="$router.push('/RestaurantDetails/' + item._id)">
@@ -27,6 +34,9 @@
     
     export default {
       name: 'AccueilComponent',
+      data: () => ({
+      radio: 'Offres'
+    }),
       props: {
         msg: String
       }
@@ -57,8 +67,8 @@ a {
 }
 
 .recherche {
-    padding-top: 8%;
-    padding-bottom: 8%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     margin: 2%;
     margin-left: 15%;
     margin-right: 15%;

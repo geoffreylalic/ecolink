@@ -6,6 +6,7 @@ import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import Accueil from './components/Accueil.vue'
 import DeposerAnnonce from './components/DeposerAnnonce.vue'
+import APropos from './components/APropos.vue'
 
 Vue.config.productionTip = false
 
@@ -25,6 +26,10 @@ const router = new VueRouter ({
      {
       path: '/deposerannonce',
       component: DeposerAnnonce 
+    },
+    {
+      path: '/apropos',
+      component: APropos 
     },
   ],
   mode : 'history'

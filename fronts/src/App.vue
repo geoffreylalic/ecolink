@@ -6,14 +6,18 @@
         <router-link to="/">
           <h1 class="md-title titre">ecolink</h1>
         </router-link>
-        <router-link to="/DeposerAnnonce">
+      </div>
+      <div class="md-layout-item">
+        <router-link to="/deposerannonce">
           <md-button class="md-raised md-primary">Déposer une annonce</md-button>
         </router-link>
       </div>
-      <div class="md-layout-item"></div>
       <div class="md-layout-item">
         <md-button class="md-accent">Favoris</md-button>
-        <md-button class="">À propos</md-button>
+        <router-link to="/apropos">
+          <md-button class="">À propos</md-button>
+        </router-link>
+        
         <md-button class="">Se conecter</md-button>
       </div>
   </div>  
