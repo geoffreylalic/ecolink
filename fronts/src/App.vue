@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    
-    <Header/>
+
+    <div class="md-layout md-gutter">
+      <div class="md-layout-item">
+        <router-link to="/">
+          <h1 class="md-title titre">EcoLink</h1>
+        </router-link>
+      </div>
+      <div class="md-layout-item"></div>
+      <div class="md-layout-item">
+        <md-button class="md-accent">Favoris</md-button>
+        <md-button class="">À propos</md-button>
+        <md-button class="">Se conecter</md-button>
+      </div>
+  </div>  
+
+  <router-view></router-view> 
+  
+    <footer>
+      ecolink
+    </footer>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-
 export default {
   name: 'App',
   components: {
-    Header
   }
 }
 </script>
@@ -23,6 +38,30 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+.titre {
+  color: black;
+  text-decoration: none;
+  font-family: 'agraham', sans-serif;
+}
+
+.card .md-card {
+    width: 20%;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 20px;
+}
+
+.card .md-title {
+  font-size: small;
+}
+
+footer {
+  margin-top: 5%;
+  font-family: 'agraham', sans-serif;
+}
+
+@import url('http://fonts.cdnfonts.com/css/agraham');
 </style>
