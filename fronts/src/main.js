@@ -7,33 +7,37 @@ import 'vue-material/dist/theme/default.css'
 import Accueil from './components/Accueil.vue'
 import DeposerAnnonce from './components/DeposerAnnonce.vue'
 import ListingAnnonces from './components/ListingAnnonces.vue'
+import APropos from './components/APropos.vue'
 
 Vue.config.productionTip = false
 
 Vue.use(VueMaterial)
 Vue.use(VueRouter)
 
-const router = new VueRouter ({
-  routes : [ 
-     {
-       path: '/',
-       component: Accueil 
-     },
-     {
-       path: '/accueil',
-       component: Accueil 
-     },
-     {
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      component: Accueil
+    },
+    {
+      path: '/accueil',
+      component: Accueil
+    },
+    {
       path: '/deposerannonce',
-      component: DeposerAnnonce 
+      component: DeposerAnnonce
     },
     {
       path: '/annonces',
-      component: ListingAnnonces 
+      component: ListingAnnonces,
+    }, {
+      path: '/apropos',
+      component: APropos
     },
   ],
-  mode : 'history'
-}) 
+  mode: 'history'
+})
 
 new Vue({
   router,
