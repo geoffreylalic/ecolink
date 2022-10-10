@@ -20,8 +20,9 @@
         <router-link to="/apropos">
           <md-button class="">À propos</md-button>
         </router-link>
-        
-        <md-button class="">Se conecter</md-button>
+        <router-link to="/creercompte">
+          <md-button class="">Créer un compte</md-button>
+        </router-link>
       </div>
   </div>  
 

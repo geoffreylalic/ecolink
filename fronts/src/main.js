@@ -8,6 +8,7 @@ import Accueil from './components/Accueil.vue'
 import DeposerAnnonce from './components/DeposerAnnonce.vue'
 import ListingAnnonces from './components/ListingAnnonces.vue'
 import APropos from './components/APropos.vue'
+import CreerCompte from './components/CreerCompte.vue'
 
 Vue.config.productionTip = false
 
@@ -31,10 +32,15 @@ const router = new VueRouter({
     {
       path: '/annonces',
       component: ListingAnnonces,
-    }, {
+    }, 
+    {
       path: '/apropos',
       component: APropos
     },
+    {
+      path:'/creercompte',
+      component: CreerCompte
+    }
   ],
   mode: 'history'
 })
