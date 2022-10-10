@@ -3,7 +3,7 @@
   <div class="md-layout md-gutter">
       <div class="md-layout-item">
         <router-link to="/">
-          <h1 class="md-title titre">EcoLink</h1>
+          <h1 class="md-title titre">ecolink</h1>
         </router-link>
       </div>
       <div class="md-layout-item"></div>

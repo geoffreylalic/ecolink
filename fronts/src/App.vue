@@ -4,7 +4,10 @@
     <div class="md-layout md-gutter">
       <div class="md-layout-item">
         <router-link to="/">
-          <h1 class="md-title titre">EcoLink</h1>
+          <h1 class="md-title titre">ecolink</h1>
+        </router-link>
+        <router-link to="/DeposerAnnonce">
+          <md-button class="md-raised md-primary">Déposer une annonce</md-button>
         </router-link>
       </div>
       <div class="md-layout-item"></div>
@@ -16,7 +19,7 @@
   </div>  
 
   <router-view></router-view> 
-  
+
     <footer>
       ecolink
     </footer>
@@ -43,7 +46,7 @@ export default {
 .titre {
   color: black;
   text-decoration: none;
-  font-family: 'agraham', sans-serif;
+  font-family: 'DM Serif Display', sans-serif;
 }
 
 .card .md-card {
@@ -60,8 +63,8 @@ export default {
 
 footer {
   margin-top: 5%;
-  font-family: 'agraham', sans-serif;
+  font-family: 'DM Serif Display', sans-serif;
 }
 
-@import url('http://fonts.cdnfonts.com/css/agraham');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 </style>

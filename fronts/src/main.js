@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import Accueil from './components/Accueil.vue'
+import DeposerAnnonce from './components/DeposerAnnonce.vue'
 
 Vue.config.productionTip = false
 
@@ -21,6 +22,10 @@ const router = new VueRouter ({
        path: '/accueil',
        component: Accueil 
      },
+     {
+      path: '/deposerannonce',
+      component: DeposerAnnonce 
+    },
   ],
   mode : 'history'
 }) 
