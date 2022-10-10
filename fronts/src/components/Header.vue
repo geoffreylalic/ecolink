@@ -1,47 +1,24 @@
 <template>
-   <div>  
 
-<section class="menu">
-
-  <md-menu md-size="small">
-      <md-button md-menu-trigger>Deposer une annonce</md-button>
-    </md-menu>
-
-
-    <md-menu md-size="big">
-     <md-button md-menu-trigger>A propos de nous</md-button>
-    </md-menu>
-
-    <md-menu md-size="huge">
-      <md-button md-menu-trigger>Login</md-button>
-    </md-menu>
-
-    <md-menu md-size="auto">
-      <md-button md-menu-trigger>S'inscrire</md-button>
-    </md-menu>
-</section>
-
-   <div class="stp" >
-    <section class="titre">
-    <p class="style" >Ecolink</p>
-    <md-field class="text-center">
-      <label>nom de l'annonce</label>
-      <md-input></md-input>
-    </md-field>
-
-      <md-button class="md-raised md-accent">Deposer une annonce</md-button>
-
-    </section>
-   </div>
- 
-
- </div>
+  <div class="md-layout md-gutter">
+      <div class="md-layout-item">
+        <router-link to="/">
+          <h1 class="md-title titre">EcoLink</h1>
+        </router-link>
+      </div>
+      <div class="md-layout-item"></div>
+      <div class="md-layout-item">
+        <md-button class="md-accent">Favoris</md-button>
+        <md-button class="">À propos</md-button>
+        <md-button class="">Se conecter</md-button>
+      </div>
+  </div>  
 
  </template>
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'HeaderComponent',
   props: {
     msg: String
   }
@@ -51,51 +28,29 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.stp{
-width: 100%;
- height: 500px;
-  background-attachment: fixed;
-   background-image: url('./pexels1.jpg');
-   background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position:  cover ;
-    overflow: hidden;
+.titre {
+  color: black;
+  text-decoration: none;
+  font-family: 'agraham', sans-serif;
 }
 
-
-.ajouter{
-  justify-content: center ;
+.card .md-card {
+    width: 20%;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 20px;
 }
 
-.md-field {
-    
-   border: white ;
-  border-radius:30px;
-  background: white;
-  }
-
-.md-input{
-  
+.card .md-title {
+  font-size: small;
 }
 
-.menu{
-  margin-left:59%;
+footer {
+  margin-top: 5%;
+  font-family: 'agraham', sans-serif;
 }
 
-
-
-.titre{
-margin-top: 10%;
-font-size:3em;
-color:white;
-
-}
-
-.style{
-text-align: center;
-font-family : Comic Sans MS, Comic Sans, cursive;
-}
-
-
+@import url('http://fonts.cdnfonts.com/css/agraham');
 
 </style>
