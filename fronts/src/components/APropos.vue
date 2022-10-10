@@ -2,8 +2,18 @@
 
     <div class="md-layout">
         <div class="md-layout-item apropos">
-            <h1>À propos</h1>
-            <p>Les entreprises produisent des déchets qui polluent notre planète et ne sont pas réutilisés. Lors d’une production, chaque entreprise gaspille énormément de matières premières, seulement la moitié des matières premières sont recyclées. La plupart sont généralement jetés à la déchetterie, ainsi les entreprises dépensent de l’argent pour jeter leur surplus</p>
+            <div>
+                <h1>À propos</h1>
+                <p>Les entreprises produisent des déchets qui polluent notre planète et ne sont pas réutilisés. Lors d’une production, chaque entreprise gaspille énormément de matières premières, seulement la moitié des matières premières sont recyclées. La plupart sont généralement jetés à la déchetterie, ainsi les entreprises dépensent de l’argent pour jeter leur surplus</p>
+            </div>
+             <br>
+             <div>
+                <h1>Nous contacter</h1>
+                <img width="80" src="../assets/facebook.png">
+                <img width="80" src="../assets/twitter.png">
+                <img width="80" src="../assets/instagram.png">
+                <img width="80" src="../assets/linkedin.png">
+             </div>
         </div>
 
         <div class="md-layout-item apropos">
