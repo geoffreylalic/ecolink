@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <h1>Les annonces</h1>
         <md-card md-with-hover v-for="(item, index) in publications" :key="index">
             <md-ripple>
                 <md-card-media>
