@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import Accueil from './components/Accueil.vue'
+import Annonce from './components/Annonce.vue'
 import DeposerAnnonce from './components/DeposerAnnonce.vue'
 import ListingAnnonces from './components/ListingAnnonces.vue'
 import APropos from './components/APropos.vue'
@@ -40,6 +41,10 @@ const router = new VueRouter({
     {
       path:'/creercompte',
       component: CreerCompte
+    },
+    {
+      path:'/annonce',
+      component: Annonce
     }
   ],
   mode: 'history'

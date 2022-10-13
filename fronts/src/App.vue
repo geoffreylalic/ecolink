@@ -14,6 +14,9 @@
         <router-link to="/annonces">
           <md-button class="md-raised md-primary">Lister les annonces</md-button>
         </router-link>
+          <router-link to="/annonce">
+          <md-button class="md-raised md-primary">Annonce</md-button>
+        </router-link>
       </div>
       <div class="md-layout-item">
         <md-button class="md-accent">Favoris</md-button>
@@ -21,7 +24,7 @@
           <md-button class="">À propos</md-button>
         </router-link>
         <router-link to="/creercompte">
-          <md-button class="">Créer un compte</md-button>
+          <md-button class="">Se connecter</md-button>
         </router-link>
       </div>
   </div>  
@@ -52,7 +55,7 @@ export default {
 }
 
 .titre {
-  color: black;
+  color: #41a963;
   text-decoration: none;
   font-family: 'DM Serif Display', sans-serif;
 }
@@ -69,9 +72,18 @@ export default {
   font-size: small;
 }
 
+button.md-primary {
+  background-color: #41a963!important;
+}
+
+button.md-primary:hover{
+  background-color: #448aff!important;
+}
+
 footer {
   margin-top: 5%;
   font-family: 'DM Serif Display', sans-serif;
+  color: #41a963;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
