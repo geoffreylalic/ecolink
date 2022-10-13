@@ -1,26 +1,26 @@
 <template>
     <div class="container">
         <md-card md-with-hover v-for="(item, index) in publications" :key="index">
-            <md-ripple>
-                <md-card-media>
-                    <img v-if='item.photos !== null' :src="item.photos" alt="publicationImage">
-                    <img v-else src='../assets/default-image.png' alt="publicationImage">
-                </md-card-media>
-                <div class="card-container">
-                    <md-card-header>
-                        <div class="md-title">{{item.name}}</div>
-                        <!-- <div class="md-subhead">{{item.description}}</div> -->
-                    </md-card-header>
-                    <md-card-content>
-                        <div>{{item.price}} €</div>
-                        <div>{{item.quantity}} restant(s)</div>
-                        <div>{{item.location}}</div>
-                        <md-chip class="md-primary">{{item.category}}</md-chip>
-                    </md-card-content>
-                </div>
-
-
-            </md-ripple>
+            <div v-on:click="handleClickPub()">
+                <md-ripple>
+                    <md-card-media>
+                        <img v-if='item.photos !== null' :src="item.photos" alt="publicationImage">
+                        <img v-else src='../assets/default-image.png' alt="publicationImage">
+                    </md-card-media>
+                    <div class="card-container">
+                        <md-card-header>
+                            <div class="md-title">{{item.name}}</div>
+                            <!-- <div class="md-subhead">{{item.description}}</div> -->
+                        </md-card-header>
+                        <md-card-content>
+                            <div>{{item.price}} €</div>
+                            <div>{{item.quantity}} restant(s)</div>
+                            <div>{{item.location}}</div>
+                            <md-chip class="md-primary">{{item.category}}</md-chip>
+                        </md-card-content>
+                    </div>
+                </md-ripple>
+            </div>
         </md-card>
     </div>
 </template>
@@ -48,6 +48,13 @@ export default {
             console.log("this.publications", this.publications)
         })
 
+    },
+
+    methods: {
+        handleClickPub: function () {
+            console.log("hello")
+            this.$router.push('/annonce')
+        }
     }
 }
 
