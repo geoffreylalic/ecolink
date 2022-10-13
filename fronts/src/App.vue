@@ -21,7 +21,7 @@
           <md-button class="">À propos</md-button>
         </router-link>
         <router-link to="/creercompte">
-          <md-button class="">Créer un compte</md-button>
+          <md-button class="">Se connecter</md-button>
         </router-link>
       </div>
   </div>  
