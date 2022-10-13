@@ -14,6 +14,9 @@
         <router-link to="/annonces">
           <md-button class="md-raised md-primary">Lister les annoces</md-button>
         </router-link>
+          <router-link to="/annonce">
+          <md-button class="md-raised md-primary">Annonce</md-button>
+        </router-link>
       </div>
       <div class="md-layout-item">
         <md-button class="md-accent">Favoris</md-button>
