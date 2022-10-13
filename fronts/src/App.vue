@@ -52,7 +52,7 @@ export default {
 }
 
 .titre {
-  color: black;
+  color: #41a963;
   text-decoration: none;
   font-family: 'DM Serif Display', sans-serif;
 }
@@ -69,9 +69,18 @@ export default {
   font-size: small;
 }
 
+button.md-primary {
+  background-color: #41a963!important;
+}
+
+button.md-primary:hover{
+  background-color: #448aff!important;
+}
+
 footer {
   margin-top: 5%;
   font-family: 'DM Serif Display', sans-serif;
+  color: #41a963;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
