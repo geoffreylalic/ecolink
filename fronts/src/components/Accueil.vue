@@ -26,21 +26,24 @@
 
         <p v-show="noResult">Aucun résultat</p>
       </div>
+      <ListingAnnonces></ListingAnnonces>
 </div>
 
     
      </template>
     <script>
+import ListingAnnonces from './ListingAnnonces.vue';
     
     export default {
-      name: 'AccueilComponent',
-      data: () => ({
-      radio: 'Offres'
+    name: "AccueilComponent",
+    data: () => ({
+        radio: "Offres"
     }),
-      props: {
+    props: {
         msg: String
-      }
-    }
+    },
+    components: { ListingAnnonces }
+}
     </script>
     
     <style scoped>

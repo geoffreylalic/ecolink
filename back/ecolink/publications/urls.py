@@ -8,3 +8,4 @@ urlpatterns = [
     path('supplies/', SuppliesView.as_view(), name='supplies_publication'),
     path('demands/', DemandsView.as_view(), name='demands_publication'),
 ]
+

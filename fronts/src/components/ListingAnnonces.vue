@@ -1,21 +1,26 @@
 <template>
-    <div>
-        <h1>Nos annonces</h1>
+    <div class="container">
+        <h1>Les annonces</h1>
         <md-card md-with-hover v-for="(item, index) in publications" :key="index">
             <md-ripple>
-                <md-card-header>
-                    <div class="md-title">{{item.name}}</div>
-                    <!-- <div class="md-subhead">{{item.description}}</div> -->
-                </md-card-header>
+                <md-card-media>
+                    <img v-if='item.photos !== null' :src="item.photos" alt="publicationImage">
+                    <img v-else src='../assets/default-image.png' alt="publicationImage">
+                </md-card-media>
+                <div class="card-container">
+                    <md-card-header>
+                        <div class="md-title">{{item.name}}</div>
+                        <!-- <div class="md-subhead">{{item.description}}</div> -->
+                    </md-card-header>
+                    <md-card-content>
+                        <div>{{item.price}} €</div>
+                        <div>{{item.quantity}} restant(s)</div>
+                        <div>{{item.location}}</div>
+                        <md-chip class="md-primary">{{item.category}}</md-chip>
+                    </md-card-content>
+                </div>
 
-                <md-card-content>
-                    {{item.description}}
-                </md-card-content>
 
-                <md-card-actions>
-                    <md-button>Action</md-button>
-                    <md-button>Action</md-button>
-                </md-card-actions>
             </md-ripple>
         </md-card>
     </div>
@@ -51,6 +56,42 @@ export default {
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.md-card {
+    width: 500px;
+    height: 200px;
+    margin: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.md-card .md-ripple {
+    display: flex;
+}
+
+.md-card .md-card-header {
+    padding-left: 5%;
+}
+
+.card-container {
+    padding-left: 5%;
+    width: 100%;
+}
+
+.md-card-media img {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    align-items: flex-start;
+    padding-left: 40px;
+}
 </style>
   

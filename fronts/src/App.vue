@@ -12,7 +12,7 @@
           <md-button class="md-raised md-primary">Déposer une annonce</md-button>
         </router-link>
         <router-link to="/annonces">
-          <md-button class="md-raised md-primary">Lister les annoces</md-button>
+          <md-button class="md-raised md-primary">Lister les annonces</md-button>
         </router-link>
       </div>
       <div class="md-layout-item">
