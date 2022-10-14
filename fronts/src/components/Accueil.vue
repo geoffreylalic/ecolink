@@ -14,21 +14,22 @@
         </div>
         <md-field>
             <label>{{ radio }}</label>
-            <md-input @input="chercherRestaurants" type="texte" v-model="nomRechercher"></md-input>
+            <md-input type="texte"></md-input>
         </md-field>
 
         <md-button class="md-raised md-primary">Rechercher</md-button>
-
-        <md-table v-model="restaurantsRecherche" v-show="show">
+        
+        <!-- Uncomment if needed -->
+        <!-- <md-table>
           <md-table-row slot="md-table-row" slot-scope="{ item }" v-on:click="$router.push('/RestaurantDetails/' + item._id)">
             <md-table-cell>{{ item.name }}</md-table-cell>
             <md-table-cell>{{ item.cuisine }}</md-table-cell>
             <md-table-cell><i class="el-icon-star-on" v-for="note in item.grades[0].score" :key="note"></i></md-table-cell>
             <md-table-cell><img src="../assets/heart-icon.png" alt="LIKED" width="10px" v-if="isFavoris(item._id)"></md-table-cell>
           </md-table-row>
-        </md-table>
+        </md-table> -->
 
-        <p v-show="noResult">Aucun résultat</p>
+        <p>Aucun résultat</p>
       </div>
 
       <div id="categorie">

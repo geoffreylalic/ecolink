@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <md-card md-with-hover v-for="(item, index) in publications" :key="index">
-            <div v-on:click="handleClickPub()">
+            <div v-on:click="handleClickPub(item.id)">
                 <md-ripple>
                     <md-card-media>
                         <img v-if='item.photos !== null' :src="item.photos" alt="publicationImage">
@@ -41,19 +41,15 @@ export default {
     },
 
     mounted() {
-        console.log("hello",)
         publicationServices.getPublications().then(data => {
-            console.log(data)
             this.publications = data
-            console.log("this.publications", this.publications)
         })
 
     },
 
     methods: {
-        handleClickPub: function () {
-            console.log("hello")
-            this.$router.push('/annonce')
+        handleClickPub: function (id) {
+            this.$router.push({name : 'Annonce', params:{id: id}})
         }
     }
 }

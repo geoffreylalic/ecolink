@@ -43,8 +43,9 @@ const router = new VueRouter({
       component: CreerCompte
     },
     {
-      path:'/annonce',
-      component: Annonce
+      name :'Annonce',
+      path:'/annonce/:id',
+      component: Annonce,
     }
   ],
   mode: 'history'
