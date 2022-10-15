@@ -30,7 +30,7 @@
   </div>  
 
   <router-view></router-view> 
-
+  
     <footer>
       ecolink
     </footer>
