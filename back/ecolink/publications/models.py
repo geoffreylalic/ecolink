@@ -7,15 +7,15 @@ from accounts.models import Profile
 class Publication(models.Model):
     TYPE_CHOICES = (
         ('supply', 'supply'),
-        ('demand', 'demand'),
+         ('demand', 'demand'),
     )
 
     name = models.CharField(max_length=255, null=True, blank=True)
     description = models.CharField(max_length=255, null=True, blank=True)
     category = models.CharField(max_length=255, null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
-    type = models.CharField(choices=TYPE_CHOICES,  max_length=6, blank=True)
-    photos = models.ImageField(null=True, blank=True)
+    type = models.CharField(choices=TYPE_CHOICES,  max_length=6, blank=True, null=True)
+    photos = models.ImageField(null=True, blank=True, upload_to='media')
     limit_date = models.DateField(null=True)
     price = models.DecimalField(null=True, blank=True, max_digits=999, decimal_places=2)
     quantity = models.IntegerField(null=True, blank=True)

@@ -1,166 +1,122 @@
 
-  <template>
-  <div >
-    <form
-      novalidate
-      class="md-layout"
-      @submit.prevent="validateUser"
-    >
-      <md-card   class="md-layout-item md-size-50 md-small-size-100 centrer ">
+<template>
+  <div>
+    <form novalidate class="md-layout" @submit.prevent="validateUser">
+      <md-card class="md-layout-item md-size-50 md-small-size-100 centrer ">
         <md-card-header>
           <div class="md-title">Deposer une annonce</div>
         </md-card-header>
-
         <md-card-content>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('firstName')">
-                <label for="first-name">titre de l'annonce</label>
-                <md-input
-                  name="first-name"
-                  id="first-name"
-                  autocomplete="given-name"
-                  v-model="form.firstName"
-                  :disabled="sending"
-                />
-                <span class="md-error" v-if="!$v.form.firstName.required"
-                  >Titre de l'annonce requis</span
-                >
-                <span class="md-error" v-else-if="!$v.form.firstName.minlength"
-                  >Invalid first name</span
-                >
+              <md-field :class="getValidationClass('pubName')">
+                <label for="first-name">Titre de l'annonce</label>
+                <md-input name="pubName" id="pub-name" autocomplete="given-name" v-model="form.pubName"
+                  :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.pubName.required">Titre de l'annonce requis</span>
+                <span class="md-error" v-else-if="!$v.form.pubName.minlength">Le titre de l'annonce est invalid</span>
               </md-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('lastName')">
-                <label for="last-name">Location</label>
-                <md-input
-                  name="last-name"
-                  id="last-name"
-                  autocomplete="street-address"
-                  v-model="form.lastName"
-                  :disabled="sending"
-                />
-                <span class="md-error" v-if="!$v.form.lastName.required"
-                  >The last name is required</span
-                >
-                <span class="md-error" v-else-if="!$v.form.lastName.minlength"
-                  >Invalid last name</span
-                >
+              <md-field :class="getValidationClass('location')">
+                <label for="location">Localisation</label>
+                <md-input name="location" id="location" autocomplete="street-address" v-model="form.location"
+                  :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.location.required">Localisation requise</span>
+                <span class="md-error" v-else-if="!$v.form.location.minlength">La localisation est invalide</span>
               </md-field>
             </div>
           </div>
 
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('gender')">
-                <label for="category">categorie</label>
-                <md-select
-                  name="category"
-                  id="category"
-                  v-model="form.gender"
-                  md-dense
-                  :disabled="sending"
-                >
-                  <md-option></md-option>
-                  <md-option value="M">Metaux</md-option>
-                  <md-option value="C">Carton</md-option>
-                  <md-option value="P">Plastique</md-option>
-                  <md-option value="B">Bois</md-option>
-                  <md-option value="V">Verre</md-option>
-                  <md-option value="F">Autres</md-option>
+              <md-field :class="getValidationClass('category')">
+                <label for="category">Categorie</label>
+                <md-select name="category" id="category" v-model="form.category" md-dense :disabled="sending">
+                  <md-option value="Metaux">Metaux</md-option>
+                  <md-option value="Carton">Carton</md-option>
+                  <md-option value="Plastique">Plastique</md-option>
+                  <md-option value="Bois">Bois</md-option>
+                  <md-option value="Verre">Verre</md-option>
+                  <md-option value="Autres">Autres</md-option>
                 </md-select>
-                <span class="md-error">The gender is required</span>
+                <span class="md-error">La catégorie est requise</span>
               </md-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('age')">
-                <label for="age">price</label>
-                <md-input
-                  type="number"
-                  id="price"
-                  name="price"
-                  v-model="form.age"
-                  :disabled="sending"
-                />
-                <span class="md-error" v-if="!$v.form.age.required">The price is required</span>
-                <span class="md-error" v-else-if="!$v.form.age.maxlength">Invalid price</span>
+              <md-field :class="getValidationClass('type')">
+                <label for="type">Type</label>
+                <md-select name="type" id="type" v-model="form.type" md-dense :disabled="sending">
+                  <md-option value="demand">Demande</md-option>
+                  <md-option value="supply">Offre</md-option>
+                </md-select>
+                <span class="md-error">Le type est requis</span>
+              </md-field>
+            </div>
+
+            <div class="md-layout-item md-small-size-100">
+              <md-field :class="getValidationClass('type')">
+                <label for="isPro">Professionel ou particulier</label>
+                <md-select name="isPro" id="isPro" v-model="form.isPro" md-dense :disabled="sending">
+                  <md-option value=true>Professionel</md-option>
+                  <md-option value=false>Particulier</md-option>
+                </md-select>
+                <span class="md-error">Le type est requis</span>
+              </md-field>
+            </div>
+            
+
+            <div class="md-layout-item md-small-size-100">
+              <md-field :class="getValidationClass('price')">
+                <label for="price">Prix</label>
+                <md-input type="number" id="price" name="price" v-model="form.price" :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.price.required">Le prix est requis</span>
+                <span class="md-error" v-else-if="!$v.form.price.maxlength">Invalid price</span>
               </md-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('quantite')">
-                <label for="quantite">quantite</label>
-                <md-input
-                  type="number"
-                  id="quantite"
-                  name="quantite"
-                  autocomplete="quantite"
-                  v-model="form.quantite"
-                  :disabled="sending"
-                />
-                <span class="md-error" v-if="!$v.form.quantite.required"
-                  >The quantite is required</span
-                >
-                <span class="md-error" v-else-if="!$v.form.quantite.maxlength"
-                  >Invalid quantite</span
-                >
+                <label for="quantite">Quantité</label>
+                <md-input type="number" id="quantite" name="quantite" autocomplete="quantite" v-model="form.quantite"
+                  :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.quantite.required">La quantité est requise</span>
+                <span class="md-error" v-else-if="!$v.form.quantite.maxlength">Invalid quantite</span>
               </md-field>
             </div>
           </div>
 
           <md-field>
-            <label>Only images</label>
-            <md-file v-model="single" accept="image/*" />
+            <label>Choisir une image</label>
+            <md-file accept="image/*" @input="handleSelectedFiles"  />
           </md-field>
 
           <md-field>
             <label>Description</label>
-            <md-textarea v-model="textarea"></md-textarea>
+            <md-textarea v-model="form.description"></md-textarea>
           </md-field>
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" class="md-primary" :disabled="sending"
-            >Create user</md-button
-          >
+          <md-button type="submit" class="md-raised md-primary" :disabled="sending">Créer une annonce</md-button>
         </md-card-actions>
       </md-card>
 
-      <md-snackbar :md-active.sync="userSaved"
-        >The user {{ lastUser }} was saved with success!</md-snackbar
-      >
+      <!-- <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar> -->
     </form>
   </div>
 </template>
   
-
-
-
-
- 
-
 <script>
-/*
- "name": "pub name",
-        "description": "desc teste",
-        "category": "teste",
-        "location": "France",
-        "type": "demand",
-        "photos": null,
-        "limit_date": "2022-09-30",
-        "price": "14.00",
-        "quantity": 1
-*/
 
+import publicationServices from "@/services/publicationServices";
 import { validationMixin } from "vuelidate";
 import {
   required,
-  email,
   minLength,
   maxLength,
 } from "vuelidate/lib/validators";
@@ -170,45 +126,49 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      firstName: null,
-      lastName: null,
-      gender: null,
-      age: null,
-      quantite:null,
-      email: null,
+      pubName: null,
+      location: null,
+      category: null,
+      type: null,
+      price: null,
+      quantite: null,
+      image: null,
+      description: null,
+      isPro: null,
     },
-    userSaved: false,
     sending: false,
-    lastUser: null,
   }),
   validations: {
     form: {
-      firstName: {
+      pubName: {
         required,
         minLength: minLength(3),
       },
-      lastName: {
+      location: {
         required,
         minLength: minLength(3),
       },
-      age: {
+      price: {
         required,
         maxLength: maxLength(3),
       },
-       quantite: {
+      quantite: {
         required,
         maxLength: maxLength(3),
       },
-      gender: {
+      category: {
         required,
-      },
-      email: {
-        required,
-        email,
       },
     },
   },
   methods: {
+    handleSelectedFiles(event){
+      let file = event.currentTarget.files[0]
+
+      this.form.image = file
+      console.log('fom file', this.form.image)
+    },
+
     getValidationClass(fieldName) {
       const field = this.$v.form[fieldName];
 
@@ -220,24 +180,30 @@ export default {
     },
     clearForm() {
       this.$v.$reset();
-      this.form.firstName = null;
-      this.form.lastName = null;
-      this.form.age = null;
-      this.form.quantite=null;
-      this.form.gender = null;
-      this.form.email = null;
+      this.form.pubName = null;
+      this.form.location = null;
+      this.form.price = null;
+      this.form.quantite = null;
+      this.form.category = null;
+      this.form.type = null;
     },
     saveUser() {
       this.sending = true;
-
-      // Instead of this timeout, here you can call your API
-      window.setTimeout(() => {
-        this.lastUser = `${this.form.firstName} ${this.form.lastName}`;
-        this.userSaved = true;
-        this.sending = false;
-        this.clearForm();
-      }, 1500);
+      let formData = new FormData()
+      formData.append('name',this.form.pubName )
+      formData.append('description',this.form.description)
+      formData.append('category', this.form.category )
+      formData.append('location', this.form.location )
+      formData.append('type', this.form.type )
+      formData.append('photos', this.form.image, this.form.image.name )
+      formData.append('quantity', this.form.quantite)
+      formData.append('price', this.form.price)
+      formData.append('is_pro', this.form.isPro)
+      publicationServices.createPublication(formData).then(()=>{
+        this.sending = false
+      })
     },
+
     validateUser() {
       this.$v.$touch();
 
@@ -259,9 +225,9 @@ export default {
   right: 0;
   left: 0;
 }
+
 .centrer {
   margin-left: auto;
   margin-right: auto;
 }
-
 </style>
