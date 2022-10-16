@@ -4,7 +4,7 @@
     <form novalidate class="md-layout" @submit.prevent="validateUser">
       <md-card class="md-layout-item md-size-50 md-small-size-100 centrer ">
         <md-card-header>
-          <div class="md-title">Deposer une annonce</div>
+          <div class="md-title">Déposer une annonce</div>
         </md-card-header>
         <md-card-content>
           <div class="md-layout md-gutter">
@@ -34,12 +34,11 @@
               <md-field :class="getValidationClass('category')">
                 <label for="category">Categorie</label>
                 <md-select name="category" id="category" v-model="form.category" md-dense :disabled="sending">
-                  <md-option value="Metaux">Metaux</md-option>
+                  <md-option value="Métal">Métal</md-option>
                   <md-option value="Carton">Carton</md-option>
                   <md-option value="Plastique">Plastique</md-option>
                   <md-option value="Bois">Bois</md-option>
                   <md-option value="Verre">Verre</md-option>
-                  <md-option value="Autres">Autres</md-option>
                 </md-select>
                 <span class="md-error">La catégorie est requise</span>
               </md-field>
@@ -49,8 +48,8 @@
               <md-field :class="getValidationClass('type')">
                 <label for="type">Type</label>
                 <md-select name="type" id="type" v-model="form.type" md-dense :disabled="sending">
-                  <md-option value="demand">Demande</md-option>
                   <md-option value="supply">Offre</md-option>
+                  <md-option value="demand">Demande</md-option>
                 </md-select>
                 <span class="md-error">Le type est requis</span>
               </md-field>
@@ -66,11 +65,11 @@
                 <span class="md-error">Le type est requis</span>
               </md-field>
             </div>
-            
+
 
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('price')">
-                <label for="price">Prix</label>
+                <label for="price">Prix à l'unité</label>
                 <md-input type="number" id="price" name="price" v-model="form.price" :disabled="sending" />
                 <span class="md-error" v-if="!$v.form.price.required">Le prix est requis</span>
                 <span class="md-error" v-else-if="!$v.form.price.maxlength">Invalid price</span>
@@ -90,7 +89,7 @@
 
           <md-field>
             <label>Choisir une image</label>
-            <md-file accept="image/*" @input="handleSelectedFiles"  />
+            <md-file accept="image/*" @input="handleSelectedFiles" />
           </md-field>
 
           <md-field>
@@ -108,6 +107,9 @@
 
       <!-- <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar> -->
     </form>
+    <md-snackbar :md-position="center" :md-active.sync="showSnackbar" md-persistent>
+      <span>Votre annonce a été publiée.</span>
+    </md-snackbar>
   </div>
 </template>
   
@@ -125,6 +127,8 @@ export default {
   name: "FormValidation",
   mixins: [validationMixin],
   data: () => ({
+    position: 'center',
+    showSnackbar : false,
     form: {
       pubName: null,
       location: null,
@@ -162,7 +166,7 @@ export default {
     },
   },
   methods: {
-    handleSelectedFiles(event){
+    handleSelectedFiles(event) {
       let file = event.currentTarget.files[0]
 
       this.form.image = file
@@ -180,35 +184,42 @@ export default {
     },
     clearForm() {
       this.$v.$reset();
+      this.form.image = "";
       this.form.pubName = null;
       this.form.location = null;
       this.form.price = null;
       this.form.quantite = null;
       this.form.category = null;
       this.form.type = null;
+      this.form.isPro = null;
+      this.form.description = null
     },
-    saveUser() {
+    savePublication() {
       this.sending = true;
       let formData = new FormData()
-      formData.append('name',this.form.pubName )
-      formData.append('description',this.form.description)
-      formData.append('category', this.form.category )
-      formData.append('location', this.form.location )
-      formData.append('type', this.form.type )
-      formData.append('photos', this.form.image, this.form.image.name )
+      formData.append('name', this.form.pubName)
+      formData.append('description', this.form.description)
+      formData.append('category', this.form.category)
+      formData.append('location', this.form.location)
+      formData.append('type', this.form.type)
+      if (this.form.image !== null) {
+        formData.append('photos', this.form.image, this.form.image.name)
+      }
       formData.append('quantity', this.form.quantite)
       formData.append('price', this.form.price)
       formData.append('is_pro', this.form.isPro)
-      publicationServices.createPublication(formData).then(()=>{
+      publicationServices.createPublication(formData).then(() => {
+        this.showSnackbar = true
         this.sending = false
       })
+      this.clearForm()
     },
 
     validateUser() {
       this.$v.$touch();
 
       if (!this.$v.$invalid) {
-        this.saveUser();
+        this.savePublication();
       }
     },
   },

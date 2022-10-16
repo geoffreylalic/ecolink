@@ -1,7 +1,12 @@
 <template>
-    <div class="container">
+    <!-- <div class="md-layout">
+        <div class="md-layout-item"></div>
+        <div class="md-layout-item"></div>
+        <div class="md-layout-item"></div>
+    </div> -->
+    <div class="container md-layout md-alignment-center">
         <md-card md-with-hover v-for="(item, index) in publications" :key="index">
-            <div v-on:click="handleClickPub(item.id)">
+            <div class="md-layout-item" v-on:click="handleClickPub(item.id)">
                 <md-ripple>
                     <md-card-media>
                         <img v-if='item.photos !== null' :src="item.photos" alt="publicationImage">
@@ -16,12 +21,13 @@
                             <div>{{item.price}} €</div>
                             <div>{{item.quantity}} restant(s)</div>
                             <div>{{item.location}}</div>
-                            <md-chip class="md-primary">{{item.category}}</md-chip>
+                            <md-chip>{{item.category}}</md-chip>
+                            <md-chip class="md-primary">{{item.type == 'supply' ? 'Offre' : 'Demande'}}</md-chip>
                         </md-card-content>
                     </div>
                 </md-ripple>
             </div>
-        </md-card> 
+        </md-card>
     </div>
 </template>
   
@@ -47,10 +53,10 @@ export default {
         console.log("-- listing filter name", this.filterName)
         console.log("-- listing filter type", this.filterType)
         console.log("-- listing filter category", this.filterCategory)
-        let type = this.filterType == undefined ? "": this.filterType
-        let category = this.filterCategory == undefined ? "": this.filterCategory
-        let name = this.filterName == undefined ? "": this.filterName
-        publicationServices.getPublications(name,category,type).then(data => {
+        let type = this.filterType == undefined ? "" : this.filterType
+        let category = this.filterCategory == undefined ? "" : this.filterCategory
+        let name = this.filterName == undefined ? "" : this.filterName
+        publicationServices.getPublications(name, category, type).then(data => {
             this.publications = data
         })
 
@@ -58,7 +64,7 @@ export default {
 
     methods: {
         handleClickPub: function (id) {
-            this.$router.push({name : 'Annonce', params:{id: id}})
+            this.$router.push({ name: 'Annonce', params: { id: id } })
         }
     }
 }
@@ -68,20 +74,22 @@ export default {
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
-    display: flex;
-    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     align-items: center;
+    align-self: center;
 }
 
 .md-card {
-    width: 500px;
-    height: 200px;
+    width: 600px;
+    height: 225px;
     margin: 2%;
-    margin-left: 15%;
-    margin-right: 15%;
+    /* margin-left: 15%;
+    margin-right: 15%; */
     background-color: white;
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
 }
 
 .md-card .md-ripple {

@@ -103,7 +103,7 @@
         </md-card>
       </span>
 
-      <span v-if="category" @click="handleChoiceCategory('')">
+      <span class='annuler' v-if="category" @click="handleChoiceCategory('')">
         <md-card md-with-hover>
           <md-ripple>
             <md-card-header>
@@ -119,7 +119,7 @@
     </div>
 
     <div class="derniereAnnonce">
-      <h3>Les dernières annonces</h3>
+      <h3>Annonces</h3>
       <ListingAnnonces :filterName="name" :filterCategory="category" :filterType="type" :key="keyUpdate">
       </ListingAnnonces>
 
@@ -218,6 +218,10 @@ a {
 .slogan span {
   color: #42b983;
   font-family: 'DM Serif Display', sans-serif;
+}
+
+.annuler{
+  width: 10%;
 }
 </style>
     
