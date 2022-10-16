@@ -36,7 +36,7 @@
             <md-dialog :md-active.sync="showSave" @submit.prevent="closeDialog">
                 <md-dialog-title>Bienvenue {{ newUser }} !</md-dialog-title>
                 <md-tab>
-                    <p>Nous sommes ravies de vous compter dans notre communté !</p>
+                    <p>Nous sommes ravis de vous compter dans notre communauté !</p>
                 </md-tab>
                 <md-dialog-actions>
                     <router-link to="/">
