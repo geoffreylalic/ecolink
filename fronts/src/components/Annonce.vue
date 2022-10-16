@@ -38,7 +38,8 @@ import publicationServices from '@/services/publicationServices';
 export default {
   name: 'AnnonceComponent',
   props: {
-    msg: String
+    msg: String,
+    
   },
 
   data: function () {

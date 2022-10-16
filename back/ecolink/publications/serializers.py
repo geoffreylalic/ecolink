@@ -11,12 +11,13 @@ class PublicationSerializer(serializers.ModelSerializer):
 
     def get_email(self, instance):
         profile = instance.created_by
-        return ProfileSerializer(profile).data.get('email')
-
+        # return ProfileSerializer(profile).data.get('email')
+        return 'admin@ecolink.com'
+    
     def get_phone_number(self, instance):
         profile = instance.created_by
-        return ProfileSerializer(profile).data.get('phone_number')
-
+        # return ProfileSerializer(profile).data.get('phone_number')
+        return '07 98 18 19 77'
     class Meta:
         model = Publication
         fields = (

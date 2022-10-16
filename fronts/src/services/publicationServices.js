@@ -1,5 +1,5 @@
-function getPublications() {
-    return fetch("http://localhost:8002/publications/")
+function getPublications(name, category, type) {
+    return fetch(`http://localhost:8002/publications/?name=${name}&category=${category}&type=${type}`)
         .then((r) => {
             console.log("r teste")
             return r.json()
@@ -19,7 +19,7 @@ function getDetailPublication(id) {
 
 
 function createPublication(data) {
-    return fetch("http://localhost:8002/publications/", { method: 'POST', body: data })
+    return fetch(`http://localhost:8002/publications/`, { method: 'POST', body: data })
         .then((r) => {
             return r.json()
         }).then((r) => {

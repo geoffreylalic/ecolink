@@ -21,7 +21,7 @@
                     </div>
                 </md-ripple>
             </div>
-        </md-card>
+        </md-card> 
     </div>
 </template>
   
@@ -30,7 +30,10 @@ import publicationServices from '../services/publicationServices.js'
 export default {
     name: 'ListingAnnonces',
     props: {
-        msg: String
+        msg: String,
+        filterName: String, // nom de l'annonce
+        filterCategory: String, // Metaux ....
+        filterType: String // offre et demande 
     },
 
     data: function () {
@@ -41,7 +44,13 @@ export default {
     },
 
     mounted() {
-        publicationServices.getPublications().then(data => {
+        console.log("-- listing filter name", this.filterName)
+        console.log("-- listing filter type", this.filterType)
+        console.log("-- listing filter category", this.filterCategory)
+        let type = this.filterType == undefined ? "": this.filterType
+        let category = this.filterCategory == undefined ? "": this.filterCategory
+        let name = this.filterName == undefined ? "": this.filterName
+        publicationServices.getPublications(name,category,type).then(data => {
             this.publications = data
         })
 
