@@ -29,7 +29,7 @@
           </md-table-row>
         </md-table> -->
 
-      <p>Aucun résultat</p>
+      <!-- <p>Aucun résultat</p> -->
     </div>
 
     <div id="categorie">
@@ -147,12 +147,10 @@ export default {
   components: { ListingAnnonces },
   methods: {
     handleResearch: function () {
-      console.log("ici", this.name, this.type)
       this.keyUpdate++
     },
     handleChoiceCategory: function (selectedCategory) {
       this.category = selectedCategory
-      console.log("catégory", selectedCategory)
       this.keyUpdate++
     }
   }

@@ -13,7 +13,7 @@ class PublicationSerializer(serializers.ModelSerializer):
         profile = instance.created_by
         # return ProfileSerializer(profile).data.get('email')
         return 'admin@ecolink.com'
-    
+
     def get_phone_number(self, instance):
         profile = instance.created_by
         # return ProfileSerializer(profile).data.get('phone_number')
